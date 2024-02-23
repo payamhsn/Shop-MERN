@@ -1,0 +1,15 @@
+{
+  "name": "shop-mern",
+  "version": "1.0.0",
+  "description": "eCommerce shop based on MERN stack (BackEnd).",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Payam Hoseini.",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
