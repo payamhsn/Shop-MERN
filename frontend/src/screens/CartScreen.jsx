@@ -24,6 +24,10 @@ const CartScreen = () => {
     dispatch(addToCart({ ...product, qty }));
   };
 
+  const removeFromCartHandler = (id) => {
+    dispatch(removeFromCart(id));
+  };
+
   return (
     <Row>
       <Col md={8}>
@@ -60,7 +64,11 @@ const CartScreen = () => {
                     </Form.Control>
                   </Col>
                   <Col md={2}>
-                    <Button type="button" variant="light">
+                    <Button
+                      type="button"
+                      variant="light"
+                      onClick={() => removeFromCartHandler(item._id)}
+                    >
                       <FaTrash />
                     </Button>
                   </Col>
@@ -75,8 +83,12 @@ const CartScreen = () => {
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h2>
-                Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
-                items
+                Subtotal (
+                {cartItems.reduce(
+                  (acc, item) => Number(acc) + Number(item.qty),
+                  0
+                )}
+                ) items
               </h2>
               $
               {cartItems
